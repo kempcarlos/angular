@@ -26,7 +26,7 @@ export declare function animate(timings: string | number, styles?: AnimationStyl
 
 /** @deprecated */
 export interface AnimationAnimateMetadata extends AnimationMetadata {
-    styles: AnimationStyleMetadata | AnimationKeyframesSequenceMetadata | null;
+    styles?: AnimationStyleMetadata | AnimationKeyframesSequenceMetadata;
     timings: string | number | AnimateTimings;
 }
 
@@ -71,11 +71,11 @@ export declare type AnimationStateTransitionMetadata = any;
 /** @deprecated */
 export interface AnimationStyleMetadata extends AnimationMetadata {
     offset?: number;
-    styles: {
+    styles: '*' | {
         [key: string]: string | number;
-    } | {
+    } | Array<{
         [key: string]: string | number;
-    }[];
+    } | '*'>;
 }
 
 /** @deprecated */
